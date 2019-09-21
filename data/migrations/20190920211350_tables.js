@@ -9,6 +9,9 @@ exports.up = function(knex) {
                 .text('volunteer_name')
                 .unique()
                 .notNullable();
+            tbl
+                .text('password')
+                .notNullable();
         })
         
         // cases - homie cases  
