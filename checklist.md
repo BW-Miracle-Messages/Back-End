@@ -48,8 +48,8 @@
 
 - `npx knex` or  shows command list 
 [x] run `npx  knex init` or ``yarn knex init ` to generate `knexfile.js`
-- modify `knexfile.js` to config our db connections
-- remove staging and production configs from `knexfile.js`
+[x] modify `knexfile.js` to config our db connections
+[x] remove staging and production configs from `knexfile.js`
 - run `npx knex migrate:make create_name_of_table` 
 - make a migration for each db schema change 
 - run `npx knex migrate:latest` to update changes made to table 
