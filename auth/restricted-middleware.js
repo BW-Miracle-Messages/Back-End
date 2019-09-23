@@ -3,20 +3,25 @@ const jwt = require('jsonwebtoken');
 const secrets = require('../config/secrets.js');
 
 module.exports = (req, res, next) => {
-  const token = req.headers.authorization;
+    const token = req.headers.authorization;
 
-  if (token) {
-    jwt.verify(token, secrets.jwtSecret, (error, decodedToken) => {
-      if (error) {
-        // unsuccessful 
-        res.status(401).json({ message: 'Please sign in with the correct credentials.' });
-      } else {
-        // successful 
-        req.volunteer = {  volunteer: decodedToken.volunteer_name };
-        next();
-      }
-    });
-  } else {
-    res.status(400).json({ message: 'Please provide credentials.' });
-  }
+    if (token) {
+        // token exists 
+        jwt.verify(token, secrets.jwtSecret, (error, decodedToken) => {
+            if (error) {
+                // token expired or invalid  
+                res.status(401).json({ 
+                    message: 'Please provide the correct credentials to view this information.',
+                    error: error
+                });
+
+            } else {
+                // correct token provided  
+                req.volunteer = { volunteer: decodedToken.volunteer_name };
+                next();
+            }
+        });
+    } else {
+        res.status(400).json({ message: 'Please sign in to view this information.' });
+    }
 };
