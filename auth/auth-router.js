@@ -6,8 +6,14 @@ const db = require('../routes/volunteers/volunteer-model');
 const secrets = require('../config/secrets.js'); 
 
 router.post('/register', (req, res) => {
+
+  // get object 
   let volunteer = req.body;
-  const hash = bcrypt.hashSync(volunteer.password, 10); // 2 ^ n
+
+  // make password hash 
+  const hash = bcrypt.hashSync(volunteer.password, 10); 
+
+  // set password 
   volunteer.password = hash;
 
   db.add(volunteer)
@@ -15,25 +21,37 @@ router.post('/register', (req, res) => {
       res.status(201).json(saved);
     })
     .catch(error => {
-      res.status(500).json(error);
+      res.status(500).json({
+        message: 'Could not add volunteer.',
+        error: error 
+      });
     });
 });
 
 router.post('/login', (req, res) => {
-  let { volunteer_name , password } = req.body;
+  let { volunteer_name, password } = req.body;
 
   db.findBy({ volunteer_name })
     .first()
     .then(volunteer => {
       if (volunteer && bcrypt.compareSync(password, volunteer.password)) {
+        // create volunteer token 
         const token = generateToken(volunteer);
+
+        // send back the token 
         res.status(200).json({ token });
       } else {
+
+        // incorrect password 
         res.status(401).json({ message: 'Invalid Credentials' });
       }
     })
     .catch(error => {
-      res.status(500).json(error);
+      // no user with that volunteer_name 
+      res.status(500).json({
+        message: 'An error has occured with the server',
+        error: error
+      });
     });
 });
 

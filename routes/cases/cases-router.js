@@ -74,6 +74,24 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+//GET all family members for a specific case 
+router.get('/:id/families', (req, res) => {
+    const caseId = req.params.id
+    console.log(caseId)
+
+    db.getFamilyMembers(caseId)
+        .then(members => {
+            res.status(200).json({
+                family: members 
+            })
+        })
+        .catch(err => {
+            res.status(404).json({
+                message: 'Could not find family members for that case id', 
+                error: err 
+            })
+        })
+})
 
 
 module.exports = router

@@ -66,9 +66,16 @@ exports.up = function(knex) {
 
             tbl 
                 .string('email')
-            
             tbl 
-                .text('phone')
+                .string('phone')
+            tbl
+                .integer('case_id')
+                .unsigned()
+                .notNullable()
+                .references('id')
+                .inTable('cases')
+                .onUpdate('CASCADE')
+                .onDelete('CASCADE');
         })
 
         // connectVolunteers - table of ints that reference each other (case_id and volunteer_id)
