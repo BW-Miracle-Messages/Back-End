@@ -38,7 +38,6 @@ exports.seed = function(knex) {
         {case_id: 20, family_name: 'Jake Vargas', age: 35, relationship: 'Brother', current_location: 'Washington', email: 'none', phone: '964-261-6003' },
         {case_id: 20, family_name: 'Belinda Vargas', age: 80, relationship: 'Grandmother', current_location: 'Washington', email: 'none', phone: '964-221-6003' },
         {case_id: 21, family_name: 'Ann Lewis', age: 29, relationship: 'Daughter', current_location: 'California', email: 'annlewis@yahoo.com', phone: '545-388-9175'}
-               
       ]);
     });
 };
