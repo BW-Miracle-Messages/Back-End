@@ -22,7 +22,7 @@ exports.up = function(knex) {
                 .unsigned()
                 .notNullable()
                 .references('id')
-                .inTable('volunteer')
+                .inTable('volunteers')
                 .onUpdate('CASCADE')
                 .onDelete('CASCADE');
             tbl
@@ -31,6 +31,11 @@ exports.up = function(knex) {
             tbl
                 .string('current_city')
                 .notNullable();
+            
+            tbl
+                .string('current_state')
+                .notNullable();
+            
             tbl
                 .string('last_location')
                 .notNullable();
@@ -58,6 +63,12 @@ exports.up = function(knex) {
             tbl 
                 .text('current_location')
                 .notNullable(); 
+
+            tbl 
+                .string('email')
+            
+            tbl 
+                .text('phone')
         })
 
         // connectVolunteers - table of ints that reference each other (case_id and volunteer_id)
