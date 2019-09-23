@@ -5,9 +5,9 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries //added email field 
       return knex('families').insert([
-        {id: 1, family_name: 'Harry Little', age: 52, relationship: 'Grandfather', current_location: 'Nevada', email: 'hlittle@gmail.com', phone: '812-434-2667' },
-        {id: 2, family_name: 'Michelle Elliot', age: 47, relationship: 'Aunt', current_location: 'Nevada', email: 'michellelle@gmail.com', phone: '780-798-0424' },
-        {id: 3, family_name: 'Carl Elliot', age: 31, relationship: 'Son', current_location: 'Nevada', email: 'elliotcarl@gmail.com', phone: '741-318-3591' },
+        {id: 1, family_name: 'Harry Little', age: 52, relationship: 'Grandfather', current_location: 'Nevada', email: 'hlittle@gmail.com', phone: '812-434-2667'},
+        {id: 2, family_name: 'Michelle Elliot', age: 47, relationship: 'Aunt', current_location: 'Nevada', email: 'michellelle@gmail.com', phone: '780-798-0424'},
+        {id: 3, family_name: 'Carl Elliot', age: 31, relationship: 'Son', current_location: 'Nevada', email: 'elliotcarl@gmail.com', phone: '741-318-3591'},
         {id: 4, family_name: 'Joyce Boyd', age: 62, relationship: 'Grandmother', current_location: 'New Jersey', email: 'none', phone: 'disconnected'},
         {id: 5, family_name: 'Kevin Gibson', age: 40, relationship: 'Uncle', current_location: 'Arizona', email: 'unknown', phone: '697-977-0539'},
         {id: 6, family_name: 'Ashley Griffin', age: 30, relationship: 'Granddaughter', current_location: 'Portland', email: 'thegriff@gmail.com', phone: '785-347-2022'},
@@ -22,7 +22,7 @@ exports.seed = function(knex) {
         {id: 15, family_name: 'Keith Brewer', age: 38, relationship: 'Nephew', current_location: 'Texas', email: 'thebrewster@gmail.com', phone: 'disconnected' },
         {id: 16, family_name: 'Valerie Moreno ', age: 27, relationship: 'Sister', current_location: 'NY', email: 'morenocaro@icloud.com', phone: '708-868-6153'},
         {id: 17, family_name: 'Larry Hamilton', age: 35, relationship: 'Cousin', current_location: 'NY', email: 'none', phone: '290-236-7392'},
-        {id: 18, family_name: 'Jeremy Ramos', age: 25, relationship: 'Nephew', current_location: 'Texas', email: 'makeitramos@gmail.com', phone: ''},
+        {id: 18, family_name: 'Jeremy Ramos', age: 25, relationship: 'Nephew', current_location: 'Texas', email: 'makeitramos@gmail.com', phone: '504-233-9191'},
         {id: 19, family_name: 'Jean Ray', age: 22, relationship: 'Daughter', current_location: 'South Carolina', email: 'jeanray@ yahoo.com', phone: 'unknown'},
         {id: 20, family_name: 'Doris Vargas', age: 70, relationship: 'Mother', current_location: 'Washington', email: 'none', phone: '964-261-6003' },
         {id: 21, family_name: 'Ann Lewis', age: 29, relationship: 'Daughter', current_location: 'California', email: 'annlewis@yahoo.com', phone: '545-388-9175'}

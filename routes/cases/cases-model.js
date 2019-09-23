@@ -1,9 +1,13 @@
-const db = require('../data/db-config.js'); 
+const db = require('../../data/db-config'); 
 
 module.exports = {
   addCase,
   getCases, 
-  getCaseById
+  getCaseById,
+  findById,
+  updateCase,
+  removeCase
+ 
 };
 
 async function addCase(newCase) {
@@ -28,4 +32,17 @@ function getCaseById(id) {
     .join('volunteers', 'connectVolunteer.volunteer_id', 'volunteers.id')
     .where({ id })
     .select('cases.volunteer_id', 'cases.homie_name', 'cases.current_city', 'cases.last_location', 'cases.hometown', 'cases.sensitive')
+}
+
+
+function updateCase(id, changes) {
+  return db('cases')
+  .where({ id })
+  .update(changes)
+}
+
+function removeCase(id) {
+  return db('cases')
+    .where('id', id)
+    .del();
 }
