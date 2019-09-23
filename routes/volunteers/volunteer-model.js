@@ -5,7 +5,9 @@ module.exports = {
   find,
   findBy,
   findById,
-  getCases
+  getCases,
+  updateVolunteer,
+  removeVolunteer
 };
 
 function find() {
@@ -34,4 +36,16 @@ function getCases(id) {
     .join('volunteers', 'connectVolunteer.volunteer_id', 'volunteers.id')
     .where({ id })
     .select('cases.volunteer_id', 'cases.homie_name', 'cases.current_city', 'cases.last_location', 'cases.hometown', 'cases.sensitive')
+}
+
+function updateVolunteer(id, changes) {
+  return db('volunteers')
+  .where({ id })
+  .update(changes)
+}
+
+function removeVolunteer(id) {
+  return db('volunteers')
+    .where('id', id)
+    .del();
 }

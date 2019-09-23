@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 //GET case by id -- tested & working 
 router.get('/:id', (req, res) => {
     const id = req.params.id
-    // console.log(casesId)
+    // console.log(id)
 
     db.findById(id)
     .then(cases => {
@@ -27,8 +27,10 @@ router.get('/:id', (req, res) => {
     })
 })
 
+
+
 //POST new case  tested & working--- volunteer_id must reference a volunteer that exists in db 
-router.post('/', (req, res) => {
+router.post('/',  (req, res) => {
     const newCase = req.body
     console.log(newCase)
 
@@ -71,17 +73,6 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err.message)
     })
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 
