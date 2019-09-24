@@ -21,11 +21,11 @@
 [x] server file 
 [x] index file 
 [x] routes folder
-    [] routes files
-    [] models
-[] migrations
+    [x] routes files
+    [x] models
+[x] migrations
 [x] knex file
-[] seeds files 
+[x] seeds files 
 [x] data folder
 [x] dbConfig file 
 
@@ -50,27 +50,27 @@
 [x] run `npx  knex init` or ``yarn knex init ` to generate `knexfile.js`
 [x] modify `knexfile.js` to config our db connections
 [x] remove staging and production configs from `knexfile.js`
-- run `npx knex migrate:make create_name_of_table` 
-- make a migration for each db schema change 
-- run `npx knex migrate:latest` to update changes made to table 
-- SAVE FILES AND CHECK YOUR SERVER
-- need to create a migration for every changes made, i.e. adding email or creating another table, etc
-- `npx knex migrate:rollback` deletes last migration added 
+[x] run `npx knex migrate:make create_name_of_table` 
+[x] make a migration for each db schema change 
+[x] run `npx knex migrate:latest` to update changes made to table 
+[x] SAVE FILES AND CHECK YOUR SERVER
+[x] need to create a migration for every changes made, i.e. adding email or creating another table, etc
+[x]`npx knex migrate:rollback` deletes last migration added 
 
 
 ##TO SEED
 
-- `npx knex seed:make name of table 
-- can add numbers to order seeds
-- `npx knex seed: run`
+[x] `npx knex seed:make name of table 
+[x] can add numbers to order seeds
+[x] `npx knex seed: run`
 
 
-[] add to packacke.json: (for the env file)
+[] add to package.json: (for the env file)
  "jest": {
     "testEnvironment": "node"
   }
 [] yarn start server 
-[] need cross env for testing for node (installed already)
+[x] need cross env for testing for node (installed already)
 [] create .env file:
 [] add  to package.json
 “Jest”; {
@@ -92,6 +92,6 @@ Jest —init
     - creates test database 
     - can add --env=testing to seed command to create testing seeds 
 
-[] yarn add supertest — dev
-[] yarn add jest-dom --dev
-[] yarn add cross-env and add to scripts 
+[x] yarn add supertest — dev
+[x] yarn add @testing-library/jest-dom -D
+[x] yarn add cross-env and add to scripts 
