@@ -25,8 +25,7 @@ exports.seed = function(knex) {
         {id: 18, family_name: 'Jeremy Ramos', age: 25, relationship: 'Nephew', current_location: 'Texas', email: 'makeitramos@gmail.com', phone: '504-233-9191'},
         {id: 19, family_name: 'Jean Ray', age: 22, relationship: 'Daughter', current_location: 'South Carolina', email: 'jeanray@ yahoo.com', phone: 'unknown'},
         {id: 20, family_name: 'Doris Vargas', age: 70, relationship: 'Mother', current_location: 'Washington', email: 'none', phone: '964-261-6003' },
-        {id: 21, family_name: 'Ann Lewis', age: 29, relationship: 'Daughter', current_location: 'California', email: 'annlewis@yahoo.com', phone: '545-388-9175'}
-               
+        {id: 21, family_name: 'Ann Lewis', age: 29, relationship: 'Daughter', current_location: 'California', email: 'annlewis@yahoo.com', phone: '545-388-9175'}            
       ]);
     });
 };
