@@ -54,7 +54,7 @@ router.get('/:id/cases', (req, res) => {
     const id = req.params.id
     // console.log(id)
 
-    casesDb.getCaseById(id)
+    volunteerDb.getCases(id)
     .then(cases => {
         res.status(200).json(cases)
     })
@@ -65,10 +65,10 @@ router.get('/:id/cases', (req, res) => {
 
 //POST add a family member to a specific case 
 router.post('/case/:id/family', (req, res) => {
-    const caseId = req.params.id
+    const family = req.body; 
     // console.log(caseId)
 
-    casesdb.addFamilyMember(caseId)
+    casesDb.addFamilyMember(family)
         .then(member => {
             res.status(201).json({
                 member 
@@ -91,7 +91,7 @@ router.get('/case/:id/family', (req, res) => {
     casesDb.getFamilyMembers(caseId)
         .then(members => {
             res.status(200).json({
-                family: members 
+                members 
             })
         })
         .catch(err => {

@@ -54,11 +54,7 @@ function getFamilyMembers(id) {
 }
 
 async function addFamilyMember(newFamily) {
-  const [id] = await db('families').insert(newFamily);
-
-  return db('families')
-    .where({ id })
-    .first();
+  return db('families').insert(newFamily);
 }
 
 function updateFamilyMember(id, changes) {
