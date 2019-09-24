@@ -2,6 +2,8 @@ const db = require('../../data/db-config');
 
 module.exports = {
   addCase,
+  updateFamilyMember, 
+  addFamilyMember, 
   getCases, 
   getCaseById,
   findById,
@@ -49,4 +51,18 @@ function removeCase(id) {
 function getFamilyMembers(id) {
   return db('families')
     .where('case_id', id)
+}
+
+async function addFamilyMember(newFamily) {
+  const [id] = await db('families').insert(newFamily);
+
+  return db('families')
+    .where({ id })
+    .first();
+}
+
+function updateFamilyMember(id, changes) {
+  return db('families')
+  .where({ id })
+  .update(changes)
 }
