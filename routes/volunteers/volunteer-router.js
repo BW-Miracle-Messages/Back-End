@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const db = require('./volunteer-model.js');
+const volunteerDb = require('./volunteer-model.js');
+const casesDb = require('../cases/cases-model.js');
 const restricted = require('../../auth/restricted-middleware');
 
 router.get('/', restricted, (req, res) => {
-    db.find()
+    volunteerDb.find()
         .then(volunteers => {
             res.status(200).json({ 
                 volunteers, loggedInVolunteer: req.volunteer.volunteer_name 
@@ -24,7 +25,7 @@ router.put('/:id', validatePut, (req, res) => {
     // console.log(volunteerInfo)
     // console.log(volunteerId)
 
-    db.updateVolunteer(volunteerId, volunteerInfo)
+    volunteerDb.updateVolunteer(volunteerId, volunteerInfo)
     .then(cases => {
         res.status(200).json(cases)
     })
@@ -39,7 +40,7 @@ router.delete('/:id', (req, res) => {
     const volunteerId = req.params.id
     // console.log(volunteerId)
 
-    db.removeVolunteer(volunteerId)
+    volunteerDb.removeVolunteer(volunteerId)
     .then(cases => {
         res.status(201).end()
     })
@@ -48,6 +49,58 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+//GET volunteer cases -- 
+router.get('/:id/cases', (req, res) => {
+    const id = req.params.id
+    // console.log(id)
+
+    volunteerDb.getCases(id)
+    .then(cases => {
+        res.status(200).json(cases)
+    })
+    .catch(err => {
+        res.status(500).json(err.message)
+    })
+})
+
+//POST add a family member to a specific case 
+router.post('/case/:id/family', (req, res) => {
+    const family = req.body; 
+    // console.log(caseId)
+
+    casesDb.addFamilyMember(family)
+        .then(member => {
+            res.status(201).json({
+                member 
+            })
+        })
+        .catch(err => {
+            res.status(404).json({
+                message: 'Could not create family member for this case', 
+                error: err 
+            })
+        })
+})
+
+
+//GET all family members for a specific case 
+router.get('/case/:id/family', (req, res) => {
+    const caseId = req.params.id
+    // console.log(caseId)
+
+    casesDb.getFamilyMembers(caseId)
+        .then(members => {
+            res.status(200).json({
+                members 
+            })
+        })
+        .catch(err => {
+            res.status(404).json({
+                message: 'Could not find family members for that case id', 
+                error: err 
+            })
+        })
+})
 
 function validatePut(req, res, next) {
     const put = req.body; 
