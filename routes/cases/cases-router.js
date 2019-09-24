@@ -2,6 +2,7 @@ const express = require('express')
 const db = require('./cases-model')
 const router = express.Router();
 
+
 //GET all cases -- tested & working
 router.get('/', (req, res) => {
     db.getCases()
@@ -30,9 +31,9 @@ router.get('/:id', (req, res) => {
 
 
 //POST new case  tested & working--- volunteer_id must reference a volunteer that exists in db 
-router.post('/',  (req, res) => {
+router.post('/', (req, res) => {
     const newCase = req.body
-    console.log(newCase)
+    // console.log(newCase)
 
     db.addCase(newCase)
     .then(cases => {
@@ -47,8 +48,8 @@ router.post('/',  (req, res) => {
 router.put('/:id', (req, res) => {
     const caseInfo = req.body
     const caseId = req.params.id
-console.log(caseInfo)
-console.log(caseId)
+    // console.log(caseInfo)
+    // console.log(caseId)
 
     db.updateCase(caseId, caseInfo)
     .then(cases => {
@@ -63,7 +64,7 @@ console.log(caseId)
 //DELETE a case --tested & working
 router.delete('/:id', (req, res) => {
     const caseId = req.params.id
-    console.log(caseId)
+    // console.log(caseId)
 
     db.removeCase(caseId)
     .then(cases => {
@@ -74,6 +75,23 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+//GET all family members for a specific case 
+router.get('/:id/families', (req, res) => {
+    const caseId = req.params.id
+    // console.log(caseId)
 
+    db.getFamilyMembers(caseId)
+        .then(members => {
+            res.status(200).json({
+                family: members 
+            })
+        })
+        .catch(err => {
+            res.status(404).json({
+                message: 'Could not find family members for that case id', 
+                error: err 
+            })
+        })
+})
 
 module.exports = router
