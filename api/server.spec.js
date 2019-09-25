@@ -23,9 +23,6 @@ describe('server', () => {
                 expect(res.type).toBe('text/html')
             }) 
 
-
-   
-
             })
         
         })

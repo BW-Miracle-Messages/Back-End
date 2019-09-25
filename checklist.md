@@ -79,12 +79,12 @@
 
 OR 
 
-Jest —init
-	- override: yes
-	- can be: no or yes 
-	-testing environment: node
-	- Coverage reports: yes
-	- auto clear mock calls: no
+npx jest —init
+	[x] override: yes
+	[x] can be: no or yes 
+	[x] testing environment: node
+	[x] Coverage reports: yes/no
+	[x] auto clear mock calls: no/yes
 
 ^^^ takes the jest key out of the package.json and goes to jest  config file 
 
