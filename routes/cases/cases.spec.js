@@ -4,7 +4,7 @@ const request= require('supertest')
 const server = require('../../api/server')
 
 
- describe('POST /cases endpoint', () => {
+ describe('POST cases-model.js tests', () => {
     describe('send()', () => {
 
         beforeEach(async() => {
