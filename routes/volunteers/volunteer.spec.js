@@ -38,10 +38,10 @@ describe('volunteer-model.js tests', () => {
         });
 
                     //tested & working 
-        it("should return a 404 status code when name is forgotten is forgotten", async () => {
+        it("should return a 404 status code when name is forgotten", async () => {
             const response = await request(server)
-              .post("/volunteers")
-              .send({ family_name: '' });
+              .post('/api/volunteers')
+              .send({ family_name: '', password: 'pass' });
             expect(response.status).toEqual(404);
           });
          });
