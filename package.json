@@ -8,6 +8,9 @@
     "server": "nodemon index.js",
     "start": "node index.js"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BW-Miracle-Messages/Back-End.git"
@@ -37,8 +40,5 @@
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
     "supertest": "^4.0.2"
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }
