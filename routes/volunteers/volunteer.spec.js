@@ -25,7 +25,7 @@ describe('volunteer-model.js tests', () => {
             expect(volunteers).toHaveLength(2);
         });
 
-                //tested & passing 
+                //tested & working
         it('should find volunteer in database by the volunteer_name', async () => {
             // added a new user 
             await Volunteers.add({ volunteer_name: 'Mykol', password: 'pass'});

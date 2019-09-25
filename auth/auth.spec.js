@@ -4,8 +4,8 @@ const db = require('../data/db-config')
 const Auth = require('./auth-router')
 
 
-//register --tested & working
 
+        //register --tested & working . 
 describe('POST /register', function() {
     it('responds with json', function(done) {
         request(server)
@@ -19,7 +19,7 @@ describe('POST /register', function() {
         })
     })  
 
-        //login  testedf & working
+        //login  tested & working
 describe('POST /login', function() {
     it('responds with json', function(done) {
         request(server)
