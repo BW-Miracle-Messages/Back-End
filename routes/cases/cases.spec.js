@@ -24,6 +24,30 @@ const server = require('../../api/server')
             sensitive: false});
             expect(response.status).toEqual(201);
       });
+                //tested and working
+      it('should remove a case from the db', async() => {
+               //needed to match model fn..doh! 
+            await Cased.addCase({ 
+            volunteer_id: 12, 
+            homie_name: 'Minnie Mouse', 
+            current_city: 'LA', 
+            current_state: 'CA', 
+            last_location: 'The House Of Mouse',
+            hometown: 'Disney', 
+            sensitive: false })
+
+            const caser = await db('cases')
+            console.log(caser);
+            expect(caser).toHaveLength(1)
+
+            const id = caser[0].id
+                //needed to match model fn..doh! 
+            await Cased.removeCase(id)
+            const delCased = await db('cases');
+            console.log(delCased)
+            expect(delCased).not.toHaveLength(1)
+        });
+
 
     })
 
