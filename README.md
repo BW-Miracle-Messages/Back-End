@@ -11,7 +11,7 @@ This API was created for the app Miracle Messages. Miracle Messages allows volun
 missing person looking to reconnect with their family members. Each missing person is considered a case. 
 A volunteer can have more than one case and a case can have more than one family member. 
 
-##Getting Started
+## Getting Started
 
 Git clone the repo to your computer.
 
