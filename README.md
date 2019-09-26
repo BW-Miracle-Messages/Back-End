@@ -15,6 +15,15 @@ A volunteer can have more than one case and a case can have more than one family
 
 https://miracle-messages2019.herokuapp.com
 
+## Tech Stack 
+
+- Express 
+- Jest
+- Node.js 
+- Nodemon
+- Postgresql 
+- Sqlite3 
+
 ##### Documentation 
 
 To read about how our API works, please refer to the link below. 
