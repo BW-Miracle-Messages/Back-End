@@ -35,7 +35,7 @@ router.put('/:id', validatePut, (req, res) => {
 })
 
 
-//DELETE a volunteer --
+//DELETE a volunteer -- good
 router.delete('/:id', (req, res) => {
     const volunteerId = req.params.id
     // console.log(volunteerId)
@@ -49,7 +49,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-//GET volunteer cases -- 
+//GET volunteer cases -- good 
 router.get('/:id/cases', (req, res) => {
     const id = req.params.id
     // console.log(id)
@@ -63,7 +63,7 @@ router.get('/:id/cases', (req, res) => {
     })
 })
 
-//POST add a family member to a specific case 
+//POST add a family member to a specific case -- good 
 router.post('/case/:id/family', (req, res) => {
     const family = req.body; 
     // console.log(caseId)
@@ -83,7 +83,7 @@ router.post('/case/:id/family', (req, res) => {
 })
 
 
-//GET all family members for a specific case 
+//GET all family members for a specific case -- good
 router.get('/case/:id/family', (req, res) => {
     const caseId = req.params.id
     // console.log(caseId)
