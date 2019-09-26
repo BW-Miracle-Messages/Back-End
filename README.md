@@ -11,6 +11,14 @@ This API was created for the app Miracle Messages. Miracle Messages allows volun
 missing person looking to reconnect with their family members. Each missing person is considered a case. 
 A volunteer can have more than one case and a case can have more than one family member. 
 
+##Getting Started
+
+Git clone the repo to your computer.
+
+In the terminal type the following commands:
+  npm install or npm i (to download node modules)
+  npm run server (to start server)
+
 ## Heroku 
 
 https://miracle-messages2019.herokuapp.com
