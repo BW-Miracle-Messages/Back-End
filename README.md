@@ -16,8 +16,10 @@ A volunteer can have more than one case and a case can have more than one family
 Git clone the repo to your computer.
 
 In the terminal type the following commands:
-  npm install or npm i (to download node modules)
-  npm run server (to start server)
+  - npm install or npm i (to download node modules)
+  - npm run server (to start server)
+  
+ Happy Coding!
 
 ## Heroku 
 
